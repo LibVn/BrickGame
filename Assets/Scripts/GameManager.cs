@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     Text statusText;
+    Text notiText;
 
     // Use this for initialization
     void Start()
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
         blocks = GameObject.FindGameObjectsWithTag("Block");
         Ball = GameObject.Find("Ball").GetComponent<BallScript>();
         statusText = GameObject.Find("Status").GetComponent<Text>();
+        notiText = GameObject.Find("Noti").GetComponent<Text>();
     }
 
 
@@ -21,11 +23,17 @@ public class GameManager : MonoBehaviour
     {
         return Input.touchCount > 0 || Input.GetMouseButtonUp(0);
     }
-
-
+#region test
+    public float ShowInput()
+    {
+        return Input.GetAxis("Horizontal");
+    }
+#endregion
+#region Update
     // Update is called once per frame
     void Update()
     {
+
         switch (CurrentGameState)
         {
             case GameState.Start:
@@ -68,7 +76,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
+#endregion
     private void Restart()
     {
         foreach (var item in blocks)

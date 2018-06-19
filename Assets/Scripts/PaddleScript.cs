@@ -30,6 +30,6 @@ public class PaddleScript : MonoBehaviour
     }
 
     public Transform LeftBlockTransform, RightBLockTransform;
-    public float speed = 50;
+    public float speed = 0.01f;
      
 }
